@@ -20,6 +20,6 @@ to require section of your composer.json.
 
 run tests
 ```
-  docker-compose run php ./vendor/bin/phpunit
+docker-compose run php ./vendor/bin/phpunit
 ```
 
