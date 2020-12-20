@@ -24,7 +24,7 @@ class JeebConnection implements iGateway
      * @throws Exception
      * request payment
      */
-    public function issue(array $data = array())
+    public function issue(array $data = [])
     {
         try {
             return $this->_request('/payments/issue', $data);
@@ -71,7 +71,7 @@ class JeebConnection implements iGateway
      * @return bool|mixed|string
      * @throws Exception
      */
-    private function _request(string $path = '',array $data = array())
+    private function _request(string $path = '',array $data = [])
     {
         $post = json_encode($data);
         $ch = curl_init(self::API_URL . $path);
