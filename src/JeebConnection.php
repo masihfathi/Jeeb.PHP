@@ -12,7 +12,7 @@ class JeebConnection implements iGateway
      */
     const API_URL = 'https://core.jeeb.io/api/v3';
 
-    protected $apiKey;
+    private $apiKey;
 
     public function __construct(string $_apiKey)
     {
