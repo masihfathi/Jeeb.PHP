@@ -1,0 +1,28 @@
+version: "3.8"
+
+networks:
+  app_net:
+    driver: bridge
+
+services:
+  php:
+    image: php:7.4-alpine
+    container_name: php
+    working_dir: /app
+    volumes:
+    - .:/app
+    ports:
+    - "9000:9000"
+    networks:
+      - app_net
+  composer:
+    image: composer:latest
+    container_name: composer
+    working_dir: /app
+    volumes:
+    - .:/app
+    depends_on:
+      - php
+    networks:
+      - app_net
+
