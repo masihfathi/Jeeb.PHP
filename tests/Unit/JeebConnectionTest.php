@@ -55,8 +55,8 @@ class JeebConnectionTest extends TestCase
         $jeebConnection = new JeebConnection($this->apiKey);
         $token = $result['result']['token'];
         try{
-            $result = $jeebConnection->status(['token' => $token]);
-            $this->assertTrue($result['succeed']);
+            $result = $jeebConnection->seal(['token' => $token]);
+            $this->assertStringContainsString('پرداخت هنوز نهایی نشده است.', $result['message'], "The payment dosen\'t complete yet!") ;
         }catch (\Exception $e){
             $this->expectException($e);
         }
