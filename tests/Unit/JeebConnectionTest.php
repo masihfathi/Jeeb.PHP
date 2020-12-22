@@ -56,7 +56,7 @@ class JeebConnectionTest extends TestCase
         $token = $result['result']['token'];
         try{
             $result = $jeebConnection->seal(['token' => $token]);
-            $this->assertStringContainsString('پرداخت هنوز نهایی نشده است.', $result['message'], "The payment dosen\'t complete yet!") ;
+            $this->assertStringContainsString('پرداخت هنوز نهایی نشده است.', $result['message']) ;
         }catch (\Exception $e){
             $this->expectException($e);
         }
@@ -66,7 +66,7 @@ class JeebConnectionTest extends TestCase
         $jeebConnection = new JeebConnection(uniqid());
         try{
             $result = $jeebConnection->issue($this->options);
-            $this->assertStringContainsString('Api key is required!', $result, "The result doesn't contain Api key is required!") ;
+            $this->assertStringContainsString('Api key is required!', $result) ;
         }catch (\Exception $e){
             $this->expectException($e);
         }
